@@ -1,10 +1,8 @@
-import sys
 import math
 
-sint = sys.stdin.readline
+c = int(input())
+data = input().split()
 
-c = int(sint())
-data = sint().split()
 
 def isPrime(x):
     if x == 1:
