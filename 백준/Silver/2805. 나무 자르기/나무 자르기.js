@@ -18,18 +18,19 @@ function solution(M, tree) {
 
   while (min <= max) {
     mid = Math.floor((max + min) / 2);
-    tree.forEach((num) => {
-      let minusNum = num - mid;
-      if (minusNum > 0) total += minusNum;
-    });
+    total = 0;
+
+    for (let i = 0; i < tree.length; i++) {
+      if (tree[i] <= mid) break;
+      total += tree[i] - mid;
+    }
 
     if (total >= M) {
-      if (mid > answer) answer = mid;
+      answer = mid;
       min = mid + 1;
     } else {
       max = mid - 1;
     }
-    total = 0;
   }
   console.log(answer);
 }
